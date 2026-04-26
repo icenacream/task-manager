@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>TaskFlow</title>
+     <link rel="stylesheet" href="style.css" />
+     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;700&display=swap"
+          rel="stylesheet" />
+</head>
+
+<body>
+
+     <div class="drag-bar">
+          <span class="drag-title">taskflow</span>
+          <button class="close-win" onclick="window.close()">✕</button>
+     </div>
+
+     <div class="app">
+          <div class="main">
+
+               <div class="top-bar">
+                    <h1 class="page-title" id="page-title">All Tasks</h1>
+                    <button class="add-btn" id="openModal">+ New</button>
+               </div>
+
+               <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All <span id="count-all">0</span></button>
+                    <button class="filter-btn" data-filter="todo">To Do <span id="count-todo">0</span></button>
+                    <button class="filter-btn" data-filter="progress">Active <span id="count-progress">0</span></button>
+                    <button class="filter-btn" data-filter="done">Done <span id="count-done">0</span></button>
+               </div>
+
+               <div class="task-list" id="taskList"></div>
+
+          </div>
+     </div>
+
+     <!-- Modal -->
+     <div class="modal-overlay" id="modalOverlay">
+          <div class="modal">
+
+               <div class="modal-header">
+                    <span id="modalTitle">new task</span>
+                    <button class="close-btn" id="closeModal">✕</button>
+               </div>
+
+               <input type="text" id="taskTitle" placeholder="task title..." />
+
+               <!-- Custom date picker -->
+               <div class="field-label">due date</div>
+               <div class="custom-date" id="customDate">
+                    <span class="date-display" id="dateDisplay">no date</span>
+                    <button class="date-clear" id="dateClear" style="display:none">✕</button>
+               </div>
+               <div class="calendar" id="calendar">
+                    <div class="cal-header">
+                         <button class="cal-nav" id="calPrev">&#8249;</button>
+                         <span class="cal-month" id="calMonth"></span>
+                         <button class="cal-nav" id="calNext">&#8250;</button>
+                    </div>
+                    <div class="cal-days-header">
+                         <span>su</span><span>mo</span><span>tu</span>
+                         <span>we</span><span>th</span><span>fr</span><span>sa</span>
+                    </div>
+                    <div class="cal-days" id="calDays"></div>
+               </div>
+
+               <!-- Custom status dropdown -->
+               <div class="field-label">status</div>
+               <div class="custom-select" id="customSelect">
+                    <div class="select-selected" id="selectSelected">
+                         <span class="select-dot dot-todo"></span>
+                         <span id="selectText">to do</span>
+                         <span class="select-arrow">&#8964;</span>
+                    </div>
+                    <div class="select-options" id="selectOptions">
+                         <div class="select-option" data-value="todo">
+                              <span class="select-dot dot-todo"></span> to do
+                         </div>
+                         <div class="select-option" data-value="progress">
+                              <span class="select-dot dot-prog"></span> in progress
+                         </div>
+                         <div class="select-option" data-value="done">
+                              <span class="select-dot dot-done"></span> done
+                         </div>
+                    </div>
+               </div>
+
+               <button class="save-btn" id="saveTask">save task</button>
+          </div>
+     </div>
+
+     <script src="renderer.js"></script>
+</body>
+
+</html>

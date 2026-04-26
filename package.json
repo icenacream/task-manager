@@ -1,0 +1,35 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "description": "A desktop task manager built with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.rashian.taskflow",
+    "productName": "TaskFlow",
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico",
+      "signAndEditExecutable": false,
+      "artifactName": "TaskFlow-Setup-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerHeaderIcon": "icon.ico"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^41.3.0",
+    "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  }
+}
